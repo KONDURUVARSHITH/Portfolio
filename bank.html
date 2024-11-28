@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Marketing Campaign Analysis</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .nav-links {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-list {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .process-step {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin: 10px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .comparison-table th {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bank Marketing Campaign Analysis using Decision Trees</h1>
+
+    <div class="nav-links">
+        <a href="https://github.com/KONDURUVARSHITH/BankDataset">Code Repository</a>
+       
+    </div>
+
+    <h2 id="dataset">Dataset Information</h2>
+    <div class="feature-list">
+        <h3>Features:</h3>
+        <ul>
+            <li>Demographic data: age, job, marital status, education</li>
+            <li>Financial indicators: balance, housing loan, personal loan</li>
+            <li>Campaign data: contact type, duration, previous contacts</li>
+            <li>Target: Term deposit subscription (yes/no)</li>
+        </ul>
+    </div>
+
+    <h2 id="preprocessing">Data Preprocessing Steps</h2>
+    <div class="process-step">
+        <h3>1. Data Cleaning</h3>
+        <ul>
+            <li>Handled "unknown" values by converting to NaN</li>
+            <li>Filled missing values with mode</li>
+            <li>Combined day and month columns into single date_of_contact</li>
+            <li>Dropped poutcome column (>60% missing data)</li>
+        </ul>
+    </div>
+
+    <div class="process-step">
+        <h3>2. Feature Engineering</h3>
+        <ul>
+            <li>Categorized Age into groups: <19, 19-30, 30-40, 40-60, 60-75, 75+</li>
+            <li>Created account_balance_group: Positive, Negative, Zero</li>
+            <li>Created previous_contact_group based on previous campaign contacts</li>
+        </ul>
+    </div>
+
+    <h2 id="analysis">Model Analysis</h2>
+    <div class="metrics-grid">
+        <div class="metric-box">
+            <h3>Decision Tree (Gini)</h3>
+            <ul>
+                <li>Training Accuracy: 75.20%</li>
+                <li>Testing Accuracy: 74.53%</li>
+                <li>F1-Score: 0.73</li>
+            </ul>
+        </div>
+        <div class="metric-box">
+            <h3>Decision Tree (Entropy)</h3>
+            <ul>
+                <li>Training Accuracy: 75.10%</li>
+                <li>Testing Accuracy: 74.73%</li>
+                <li>F1-Score: 0.73</li>
+            </ul>
+        </div>
+        <div class="metric-box">
+            <h3>Random Forest</h3>
+            <ul>
+                <li>Training Accuracy: 99.70%</li>
+                <li>Testing Accuracy: 71.95%</li>
+                <li>F1-Score: 0.71</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Top 6 Influential Features</h2>
+    <div class="feature-list">
+        <ol>
+            <li>Duration (0.246 correlation)</li>
+            <li>Housing (0.200 correlation)</li>
+            <li>Age Group (0.181 correlation)</li>
+            <li>Job (0.169 correlation)</li>
+            <li>Previous Contact Group (0.112 correlation)</li>
+            <li>Education (0.083 correlation)</li>
+        </ol>
+    </div>
+
+    <h2 id="results">Model Comparison</h2>
+    <table class="comparison-table">
+        <tr>
+            <th>Metric</th>
+            <th>Decision Tree (Entropy)</th>
+            <th>Random Forest</th>
+        </tr>
+        <tr>
+            <td>ROC AUC Score</td>
+            <td>0.734</td>
+            <td>0.728</td>
+        </tr>
+        <tr>
+            <td>True Positives</td>
+            <td>551</td>
+            <td>559</td>
+        </tr>
+        <tr>
+            <td>False Positives</td>
+            <td>408</td>
+            <td>544</td>
+        </tr>
+        <tr>
+            <td>False Negatives</td>
+            <td>756</td>
+            <td>748</td>
+        </tr>
+        <tr>
+            <td>True Negatives</td>
+            <td>2891</td>
+            <td>2755</td>
+        </tr>
+    </table>
+
+    <h2>Key Findings</h2>
+    <div class="process-step">
+        <ul>
+            <li>Decision Tree with entropy criterion performed best overall with 74.73% testing accuracy</li>
+            <li>Random Forest showed signs of overfitting with high training accuracy (99.70%) but lower test accuracy (71.95%)</li>
+            <li>Duration of contact was the most influential feature for prediction</li>
+            <li>Model performs better at predicting "No" responses (88% recall) than "Yes" responses (42% recall)</li>
+            <li>Housing loan status and age group were strong predictors of subscription likelihood</li>
+        </ul>
+    </div>
+
+    <h2>Conclusions</h2>
+    <div class="process-step">
+        <p>The Decision Tree classifier with entropy criterion proved to be the most reliable model, showing consistent performance between training and testing sets. While Random Forest achieved higher training accuracy, its significant drop in test accuracy indicates overfitting. The analysis revealed that the duration of contact and customer's housing loan status are crucial factors in predicting term deposit subscriptions.</p>
+    </div>
+</body>
+</html>

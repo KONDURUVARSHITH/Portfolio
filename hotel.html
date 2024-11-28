@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Customer Data Visualization Analysis</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .visualization-details {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .code-note {
+            background: #f1f1f1;
+            padding: 10px;
+            border-left: 4px solid #0066cc;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .dataset-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .info-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotel Customer Data Visualization Project</h1>
+    <div class="nav-links">
+        <a href="https://github.com/KONDURUVARSHITH/HotelCustomersDatase">Code Repository</a>
+       
+    </div>
+
+    <div class="section">
+        <h2>Dataset Overview</h2>
+        <div class="dataset-info">
+            <div class="info-card">
+                <h3>Source</h3>
+                <p>HotelCustomersDataset.xlsx</p>
+                <p>Period: 2016-2018</p>
+            </div>
+            <div class="info-card">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Customer Demographics</li>
+                    <li>Booking Information</li>
+                    <li>Revenue Data</li>
+                    <li>Stay Duration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>1. Revenue Analysis (Line Charts)</h2>
+        <div class="visualization-details">
+            <h3>Monthly Revenue Trends</h3>
+            <ul>
+                <li>Created monthly aggregation of Lodging and Other Revenue</li>
+                <li>Implemented dual-line chart with date-based x-axis</li>
+                <li>Added grid lines and removed top/right borders</li>
+                <li>Formatted axes labels and legend</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Quarterly Analysis (Dual Axis)</h2>
+        <div class="visualization-details">
+            <h3>Bookings vs Cancellations</h3>
+            <ul>
+                <li>Aggregated data quarterly using resample("Q")</li>
+                <li>Created dual y-axis plot comparing:</li>
+                <ul>
+                    <li>Total nights booked (left axis)</li>
+                    <li>Total cancellations (right axis)</li>
+                </ul>
+                <li>Removed scientific notation</li>
+                <li>Added comprehensive labels and formatting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Country Analysis (Bar Charts)</h2>
+        <div class="visualization-details">
+            <h3>Top 10 Countries Analysis</h3>
+            <ul>
+                <li>Vertical bar chart for room nights by country</li>
+                <li>Horizontal bar chart for lodging revenue</li>
+                <li>Key Findings:</li>
+                <ul>
+                    <li>France leads in both metrics</li>
+                    <li>Germany and Portugal show strong performance</li>
+                    <li>Consistent correlation between nights and revenue</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Revenue Distribution (Grouped & Stacked)</h2>
+        <div class="visualization-details">
+            <h3>Top 5 Countries Revenue Analysis</h3>
+            <ul>
+                <li>Grouped bar chart comparing lodging and other revenue</li>
+                <li>100% stacked bar chart showing revenue proportions</li>
+                <li>Added 80% reference line for baseline comparison</li>
+                <li>Implemented proper spacing and legends</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Market Share Analysis (Pie/Donut)</h2>
+        <div class="visualization-details">
+            <h3>Revenue Distribution Visualization</h3>
+            <ul>
+                <li>Created pie chart for top 5 countries</li>
+                <li>Combined remaining countries into "Other" category</li>
+                <li>Converted to donut chart with center cutout</li>
+                <li>Added percentage labels and proper formatting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Customer Behavior Analysis</h2>
+        <div class="visualization-details">
+            <h3>Stay Duration vs Revenue Analysis</h3>
+            <ul>
+                <li>Scatter plot comparing average nights to revenue</li>
+                <li>Bubble chart with size based on nightly revenue</li>
+                <li>Age distribution comparison between Germany and France</li>
+                <li>Implemented proper transparency and overlays</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Implementation</h2>
+        <div class="code-note">
+            <p>Key Libraries Used:</p>
+            <ul>
+                <li>pandas for data manipulation</li>
+                <li>matplotlib.pyplot for visualizations</li>
+                <li>datetime for time series handling</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Key Insights</h2>
+        <ul>
+            <li>Clear seasonal patterns in revenue trends</li>
+            <li>Strong correlation between length of stay and revenue</li>
+            <li>Geographic concentration in European markets</li>
+            <li>Distinct age distribution patterns across countries</li>
+            <li>Consistent ratio between lodging and other revenue</li>
+        </ul>
+    </div>
+</body>
+</html>

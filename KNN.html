@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNN Classifier Project</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #1a1a1a;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+        .nav-links {
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .feature-list {
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>KNN Classifier Project</h1>
+
+    <div class="nav-links">
+        <a href="https://github.com/KONDURUVARSHITH/KNN-Project">Code Repository</a>
+        
+    </div>
+
+    <h2>Project Overview</h2>
+    <p>
+        The KNN (K-Nearest Neighbors) Classifier project is a comprehensive machine learning implementation designed to analyze and classify data using the KNN algorithm. This project demonstrates the complete machine learning pipeline from data preprocessing to model evaluation, showcasing various aspects of supervised learning and classification techniques.
+    </p>
+    <p>
+        The system employs advanced data preprocessing techniques, cross-validation methods, and performance metrics to ensure robust classification results. It particularly focuses on optimizing the crucial 'K' parameter to achieve the best possible classification accuracy.
+    </p>
+
+    <h2>Key Features</h2>
+    <h3>Data Processing System</h3>
+    <ul class="feature-list">
+        <li>Standardization of features using StandardScaler</li>
+        <li>Train-test split implementation (75%-25% ratio)</li>
+        <li>Data validation and cleaning protocols</li>
+        <li>Feature normalization and scaling</li>
+        <li>Comprehensive data visualization using seaborn and matplotlib</li>
+    </ul>
+
+    <h3>Model Implementation</h3>
+    <ul class="feature-list">
+        <li>KNN classifier implementation using scikit-learn</li>
+        <li>Parameter optimization through error rate analysis</li>
+        <li>K-value testing range from 1 to 56</li>
+        <li>Cross-validation for model validation</li>
+        <li>ROC curve analysis and AUC score calculation</li>
+    </ul>
+
+    <h2>Performance Metrics</h2>
+    <div class="metrics-grid">
+        <div class="metric-box">
+            <h3>Classification Metrics</h3>
+            <ul>
+                <li>Overall Accuracy: 86%</li>
+                <li>Precision (Class 0): 89%</li>
+                <li>Precision (Class 1): 84%</li>
+                <li>Recall (Class 0): 84%</li>
+                <li>Recall (Class 1): 89%</li>
+            </ul>
+        </div>
+        <div class="metric-box">
+            <h3>ROC Analysis</h3>
+            <ul>
+                <li>AUC Score: 0.919</li>
+                <li>True Positive Rate: 0.885</li>
+                <li>False Positive Rate: 0.156</li>
+            </ul>
+        </div>
+        <div class="metric-box">
+            <h3>Confusion Matrix Metrics</h3>
+            <ul>
+                <li>True Negatives: 108</li>
+                <li>False Positives: 20</li>
+                <li>False Negatives: 14</li>
+                <li>True Positives: 108</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Implementation Details</h2>
+    <h3>Technologies Used</h3>
+    <ul class="feature-list">
+        <li>Python 3.x as the primary programming language</li>
+        <li>scikit-learn for machine learning implementation</li>
+        <li>pandas for data manipulation and analysis</li>
+        <li>numpy for numerical computations</li>
+        <li>matplotlib and seaborn for data visualization</li>
+        <li>Jupyter Notebook for development and documentation</li>
+    </ul>
+
+    <h2>Model Optimization</h2>
+    <ul class="feature-list">
+        <li>Implemented elbow method for optimal K-value selection</li>
+        <li>Tested K-values from 1 to 56 to find optimal performance</li>
+        <li>Selected K=19 based on minimum error rate</li>
+        <li>Performed additional validation with K=21 for comparison</li>
+        <li>Implemented error rate tracking and visualization</li>
+    </ul>
+
+    <h2>Conclusions</h2>
+    <p>
+        The project successfully implemented a KNN classifier with optimized performance. The selected K-value of 19 provided the best balance between bias and variance, achieving an impressive 86% accuracy. The high AUC score of 0.919 indicates excellent model discrimination capability, while the balanced confusion matrix metrics demonstrate robust classification performance across both classes.
+    </p>
+</body>
+</html>

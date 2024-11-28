@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Customer Churn Analysis</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .content {
+            text-align: left;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .nav-links {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            color: white;
+            background: #0066cc;
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background: #0052a3;
+        }
+        .section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .analysis-box {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Forecasting Telecom Subscriber Turnover</h1>
+
+    <div class="nav-links">
+        <a href="https://github.com/KONDURUVARSHITH/TelecomChurnPrediction" target="_blank">Code Repository</a>
+        <a href="Group_16_ML_Project_Rep.pdf" target="_blank">Report</a>
+    </div>
+
+    <div class="section">
+        <h2>Introduction</h2>
+        <div class="content">
+            <p>Customer churn represents a significant challenge in the telecommunications sector, directly impacting revenue and market position. Our research focuses on developing predictive models using machine learning techniques to identify potential customer churn and implement effective retention strategies.</p>
+            <div class="highlight">
+                <h3>Key Motivations:</h3>
+                <ul>
+                    <li>Customer acquisition costs are 25 times higher than retention costs</li>
+                    <li>Loyal customers generate stable revenue growth</li>
+                    <li>Even small improvements in retention significantly impact profitability</li>
+                    <li>Data-driven decision making can transform retention strategies</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Dataset Analysis</h2>
+        <div class="content">
+            <div class="analysis-box">
+                <h3>Dataset Composition</h3>
+                <ul>
+                    <li>7,043 customer records</li>
+                    <li>21 distinct features</li>
+                    <li>Comprehensive service information</li>
+                    <li>Demographic data</li>
+                    <li>Account history</li>
+                </ul>
+            </div>
+            <div class="analysis-box">
+                <h3>Key Variables</h3>
+                <ul>
+                    <li>Service subscriptions (phone, internet, security)</li>
+                    <li>Contract details and payment methods</li>
+                    <li>Customer demographics and history</li>
+                    <li>Usage patterns and preferences</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Exploratory Data Analysis</h2>
+        <div class="content">
+            <h3>Demographic Insights:</h3>
+            <ul>
+                <li>Gender distribution is approximately equal</li>
+                <li>16% are senior citizens</li>
+                <li>50% have partners, 30% have dependents</li>
+                <li>Significant correlation between partner status and dependents</li>
+            </ul>
+
+            <h3>Customer Behavior Patterns:</h3>
+            <ul>
+                <li>Contract length strongly correlates with tenure</li>
+                <li>Monthly contracts show highest churn rates</li>
+                <li>Senior citizens demonstrate higher churn probability</li>
+                <li>Service charges significantly impact churn decisions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Methodology Implementation</h2>
+        <div class="content">
+            <div class="analysis-box">
+                <h3>Logistic Regression</h3>
+                <p>Implemented binary classification with feature scaling, achieving 80.7% accuracy. Key findings:</p>
+                <ul>
+                    <li>Contract length is the strongest predictor</li>
+                    <li>Service type significantly influences churn</li>
+                    <li>Payment method impacts customer retention</li>
+                </ul>
+            </div>
+
+            <div class="analysis-box">
+                <h3>Random Forest</h3>
+                <p>Developed ensemble model with 80% accuracy. Notable insights:</p>
+                <ul>
+                    <li>Monthly contract type is the primary predictor</li>
+                    <li>Tenure shows strong correlation with churn</li>
+                    <li>Total charges provide significant predictive power</li>
+                </ul>
+            </div>
+
+            <div class="analysis-box">
+                <h3>Support Vector Machine</h3>
+                <p>Achieved highest accuracy at 82%. Key advantages:</p>
+                <ul>
+                    <li>Better handling of non-linear relationships</li>
+                    <li>Improved performance on imbalanced data</li>
+                    <li>More robust feature importance identification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Results and Analysis</h2>
+        <div class="content">
+            <div class="highlight">
+                <h3>Key Findings:</h3>
+                <ul>
+                    <li>Contract length is inversely related to churn probability</li>
+                    <li>DSL internet service shows lower churn rates than fiber optic</li>
+                    <li>Total charges show complex relationship with churn</li>
+                    <li>Service quality metrics strongly influence retention</li>
+                </ul>
+            </div>
+
+            <h3>Model Performance Comparison:</h3>
+            <table class="results-table">
+                <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Best Predictors</th>
+                    <th>Limitations</th>
+                </tr>
+                <tr>
+                    <td>Logistic Regression</td>
+                    <td>80.7%</td>
+                    <td>Contract type, Service type</td>
+                    <td>Limited with non-linear relationships</td>
+                </tr>
+                <tr>
+                    <td>Random Forest</td>
+                    <td>80%</td>
+                    <td>Monthly charges, Tenure</td>
+                    <td>Slight overfitting tendencies</td>
+                </tr>
+                <tr>
+                    <td>SVM</td>
+                    <td>82%</td>
+                    <td>Combined features</td>
+                    <td>Computational intensity</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Conclusions and Recommendations</h2>
+        <div class="content">
+            <div class="highlight">
+                <h3>Strategic Recommendations:</h3>
+                <ul>
+                    <li>Focus on long-term contract incentives</li>
+                    <li>Improve fiber optic service satisfaction</li>
+                    <li>Develop targeted retention programs for high-risk segments</li>
+                    <li>Implement proactive customer engagement strategies</li>
+                </ul>
+            </div>
+
+            <h3>Future Research Directions:</h3>
+            <ul>
+                <li>Integration of real-time customer behavior data</li>
+                <li>Development of dynamic prediction models</li>
+                <li>Investigation of deep learning approaches</li>
+                <li>Expansion of feature engineering techniques</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
